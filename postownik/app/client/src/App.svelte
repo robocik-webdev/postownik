@@ -1,9 +1,8 @@
 <script>
-  import List from './Panels/List.svelte';
-  import { authenticated } from './store.js';
-  $: console.log($authenticated);
+  import Postownik from './Panels/Postownik.svelte';
 </script>
 
-{#if $authenticated}
-  <List />
-{/if}
+<Postownik />
+
+<style>
+</style>
