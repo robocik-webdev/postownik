@@ -8,9 +8,9 @@
 
 
 
-{#if $authenticated}
+<!-- {#if $authenticated}
   <List />
-{/if}
+{/if} -->
 
 
 

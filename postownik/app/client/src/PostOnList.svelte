@@ -3,8 +3,9 @@
     export let title;
     export let content;
     export let type;
+    export let visible = true;
 </script>
-
+{#if visible}
 <div class="post {type}">
     <h2>{title}</h2>
     <p>{content}</p>
@@ -12,6 +13,19 @@
     <img src="https://ocdn.eu/pulscms-transforms/1/J8dk9kpTURBXy80ZTRiYzliODhiNzJmOGEzNmM2ZTdjMmI2ZTAzMTJiNi5qcGeTlQPNAggnzQT8zQLPkwXNAxTNAbyTCaY2NWI3MjMGgaEwAQ/mariusz-pudzianowski.jpg" alt="">
 </div>
 </div>
+{:else}
+<div class="post invisible {type}">
+    <h2>{title}</h2>
+    <p>{content}</p>
+    <div class="photo">
+    <img src="https://ocdn.eu/pulscms-transforms/1/J8dk9kpTURBXy80ZTRiYzliODhiNzJmOGEzNmM2ZTdjMmI2ZTAzMTJiNi5qcGeTlQPNAggnzQT8zQLPkwXNAxTNAbyTCaY2NWI3MjMGgaEwAQ/mariusz-pudzianowski.jpg" alt="">
+</div>
+</div>
+{/if}
+
+
+
+
 
 
 <style>
@@ -26,14 +40,27 @@
         border-radius: 35px;
         
     }
+    
+    div.private{
+        border-color: rgb(50, 50, 50);
+    }
     div.concept {
+        border-color: purple;
+    }
+    div.inEdition{
         border-color: orange;
     }
-    div.potential {
-        border-color: blue ;
+    div.forReview {
+        border-color: red ;
     }
-    div.final {
+    div.ready {
+        border-color: blue;
+    }
+    div.published{
         border-color: green;
+    }
+    div.invisible{
+        display: none;
     }
     h2{
         text-align: center;
