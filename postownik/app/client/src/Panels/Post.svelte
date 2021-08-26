@@ -1,22 +1,31 @@
 <script>
 </script>
 
-<div class="postownik__backgroundlayer">
-  <div class="postownik__content">
-    <div class="postownik__content--main">
+<div class="backgroundlayer">
+  <div class="content">
+    <div class="content--main">
       <h3>Postownik</h3>
     </div>
-    <div class="postownik__content--title">
-      <input class="postownik--title" type="text" placeholder="lorem" />
+    <div class="content--title">
+      <input class="title" type="text" placeholder="lorem" />
     </div>
-    <div class="postownik__content--textarea">
+    <div class="content--textarea">
       <textarea
-        class="postownik--textarea"
+        class="textarea"
         wrap="hard"
         rows="15"
         cols="55"
         placeholder="ipsum"
       />
+    </div>
+    <div class="content--buttons">
+      <div class="buttonset--small">
+        <button class="buttonSmall">Potencjalny post</button>
+        <button class="buttonSmall">Post</button>
+      </div>
+      <div class="buttonset--save">
+        <button class="buttonSave">Zapisz</button>
+      </div>
     </div>
   </div>
 </div>
@@ -27,37 +36,38 @@
     margin: 0;
   }
 
-  .postownik__backgroundlayer {
-    margin: 10px 200px;
+  .backgroundlayer {
+    margin: 10px 100px 10px 100px;
   }
 
-  .postownik__content {
+  .content {
     width: 600px;
     color: var(--light);
   }
 
-  .postownik__content--main,
-  .postownik__content--title,
-  .postownik__content--textarea {
+  .content--main,
+  .content--title,
+  .content--buttons,
+  .content--textarea {
     width: 100%;
     cursor: default;
-    margin:5px 0;
+    margin: 5px 0;
   }
-  .postownik--title {
+  .title {
     position: static;
     outline: none;
     resize: none;
     font-family: inherit;
     width: 250px;
-    padding:4px;
+    padding: 4px;
     border: 1px solid var(--grey);
     border-radius: 0;
     cursor: inherit;
     background-color: var(--light);
-    color:black;
+    color: black;
   }
 
-  .postownik--textarea {
+  .textarea {
     position: static;
     box-shadow: inherit;
     line-height: 1.5;
@@ -65,8 +75,20 @@
     outline: none;
     resize: none;
     width: 100%;
-    padding:4px;
+    padding: 4px;
     font-family: inherit;
     background-color: var(--light);
+  }
+
+  .buttonset--small {
+    width: 223px;
+    margin-bottom: 5px;
+  }
+  .buttonset--save {
+    width: 223px;
+  }
+
+  .buttonSave{
+    width:100%;
   }
 </style>
