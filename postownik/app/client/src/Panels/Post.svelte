@@ -18,6 +18,8 @@
         placeholder="ipsum"
       />
     </div>
+
+    <!-- Tutaj będą tagi/statusty, kiedyś, szybko, niedługo, soon ( ͡° ͜ʖ ͡°)-->
     <div class="content--buttons">
       <div class="buttonset--small">
         <button class="buttonSmall">Potencjalny post</button>
@@ -88,7 +90,7 @@
     width: 223px;
   }
 
-  .buttonSave{
-    width:100%;
+  .buttonSave {
+    width: 100%;
   }
 </style>
