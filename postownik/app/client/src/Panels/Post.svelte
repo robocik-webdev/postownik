@@ -21,12 +21,12 @@
 
     <!-- Tutaj będą tagi/statusty, kiedyś, szybko, niedługo, soon ( ͡° ͜ʖ ͡°)-->
     <div class="content--buttons">
-      <div class="buttonset--small">
-        <button class="buttonSmall">Potencjalny post</button>
-        <button class="buttonSmall">Post</button>
+      <div class="buttonsetSmall">
+        <button class="btnSmall">Potencjalny post</button>
+        <button class="btnSmall">Post</button>
       </div>
-      <div class="buttonset--save">
-        <button class="buttonSave">Zapisz</button>
+      <div class="buttonsetSave">
+        <button class="btnSave">Zapisz</button>
       </div>
     </div>
   </div>
@@ -82,15 +82,15 @@
     background-color: var(--light);
   }
 
-  .buttonset--small {
+  .buttonsetSmall {
     width: 223px;
     margin-bottom: 5px;
   }
-  .buttonset--save {
+  .buttonsetSave {
     width: 223px;
   }
 
-  .buttonSave {
+  .btnSave {
     width: 100%;
   }
 </style>
