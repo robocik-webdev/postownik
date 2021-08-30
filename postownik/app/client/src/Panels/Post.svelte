@@ -19,13 +19,18 @@
       />
     </div>
     <div class="content">
-      <select class="status">
-        <option>-- zmień status postu --</option>
-        <option style="color:violet">Koncept</option>
-        <option style="color:orange" disabled>W edycji</option>
-        <option style="color:red">Do przeglądu</option>
-        <option style="color:blue">Gotowy</option>
-      </select>
+      <div class="tagi">
+        <input />
+      </div>
+      <div class="status">
+        <select class="statusList">
+          <option>-- zmień status postu --</option>
+          <option style="color:violet">Koncept</option>
+          <option style="color:orange" disabled>W edycji</option>
+          <option style="color:red">Do przeglądu</option>
+          <option style="color:blue">Gotowy</option>
+        </select>
+      </div>
     </div>
     <div class="content">
       <div class="buttonsetSmall">
@@ -40,9 +45,12 @@
 </div>
 
 <style>
-  h3 {
-    padding: 0;
-    margin: 0;
+  option {
+    cursor: pointer;
+  }
+
+  option[disabled] {
+    background-color: var(--grey);
   }
 
   .backgroundlayer {
@@ -86,6 +94,15 @@
     background-color: var(--light);
   }
 
+  .tagi input {
+    width: 402px;
+  }
+
+  .tagi,
+  .status {
+    display: inline;
+  }
+
   .buttonsetSmall {
     width: 223px;
     margin-bottom: 5px;
@@ -96,9 +113,5 @@
 
   .btnSave {
     width: 100%;
-  }
-
-  option[disabled]{
-    background-color: var(--grey);
   }
 </style>
