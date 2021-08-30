@@ -9,7 +9,7 @@
     <div class="content">
       <input class="title" type="text" placeholder="lorem" />
     </div>
-    <div class="content">
+    <div class="content" style="height:292px">
       <textarea
         class="textarea"
         wrap="hard"
@@ -19,7 +19,10 @@
       />
     </div>
     <div class="content">
-      <div class="tagi">
+      <div class="drop-zone" />
+    </div>
+    <div class="content">
+      <div class="tag">
         <input />
       </div>
       <div class="status">
@@ -63,7 +66,7 @@
   }
 
   .content {
-    width: 100%;
+    width: 600px;
     cursor: default;
     margin: 5px 0;
   }
@@ -85,24 +88,28 @@
     position: static;
     box-shadow: inherit;
     line-height: 1.5;
-    border: 1px solid var(--grey);
     outline: none;
     resize: none;
-    width: 100%;
-    padding: 4px;
+    width: 600px;
     font-family: inherit;
     background-color: var(--light);
   }
 
-  .tagi input {
+  .tag input {
     width: 402px;
   }
 
-  .tagi,
+  .tag,
   .status {
     display: inline;
   }
 
+  .drop-zone{
+    height: 150px;
+    border:2px dashed var(--grey);
+    border-radius: 15px;
+    cursor: pointer;
+  }
   .buttonsetSmall {
     width: 223px;
     margin-bottom: 5px;
@@ -112,6 +119,6 @@
   }
 
   .btnSave {
-    width: 100%;
+    width: inherit;
   }
 </style>
