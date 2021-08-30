@@ -2,14 +2,14 @@
 </script>
 
 <div class="backgroundlayer">
-  <div class="content">
-    <div class="content--main">
+  <div class="main">
+    <div class="content">
       <h3>Postownik</h3>
     </div>
-    <div class="content--title">
+    <div class="content">
       <input class="title" type="text" placeholder="lorem" />
     </div>
-    <div class="content--textarea">
+    <div class="content">
       <textarea
         class="textarea"
         wrap="hard"
@@ -18,9 +18,16 @@
         placeholder="ipsum"
       />
     </div>
-
-    <!-- Tutaj będą tagi/statusty, kiedyś, szybko, niedługo, soon ( ͡° ͜ʖ ͡°)-->
-    <div class="content--buttons">
+    <div class="content">
+      <select class="status">
+        <option name="default">-- zmień status postu --</option>
+        <option name="koncept" style="color:violet">Koncept</option>
+        <option name="edycja" style="color:orange" disabled>W edycji</option>
+        <option name="przeglad" style="color:red">Do przeglądu</option>
+        <option name="gotowy" style="color:blue">Gotowy</option>
+      </select>
+    </div>
+    <div class="content">
       <div class="buttonsetSmall">
         <button class="btnSmall">Potencjalny post</button>
         <button class="btnSmall">Post</button>
@@ -42,15 +49,12 @@
     margin: 10px 100px 10px 100px;
   }
 
-  .content {
+  .main {
     width: 600px;
     color: var(--light);
   }
 
-  .content--main,
-  .content--title,
-  .content--buttons,
-  .content--textarea {
+  .content{
     width: 100%;
     cursor: default;
     margin: 5px 0;
