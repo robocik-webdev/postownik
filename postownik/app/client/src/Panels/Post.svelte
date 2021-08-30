@@ -20,11 +20,11 @@
     </div>
     <div class="content">
       <select class="status">
-        <option name="default">-- zmień status postu --</option>
-        <option name="koncept" style="color:violet">Koncept</option>
-        <option name="edycja" style="color:orange" disabled>W edycji</option>
-        <option name="przeglad" style="color:red">Do przeglądu</option>
-        <option name="gotowy" style="color:blue">Gotowy</option>
+        <option>-- zmień status postu --</option>
+        <option style="color:violet">Koncept</option>
+        <option style="color:orange" disabled>W edycji</option>
+        <option style="color:red">Do przeglądu</option>
+        <option style="color:blue">Gotowy</option>
       </select>
     </div>
     <div class="content">
@@ -54,7 +54,7 @@
     color: var(--light);
   }
 
-  .content{
+  .content {
     width: 100%;
     cursor: default;
     margin: 5px 0;
@@ -96,5 +96,9 @@
 
   .btnSave {
     width: 100%;
+  }
+
+  option[disabled]{
+    background-color: var(--grey);
   }
 </style>
