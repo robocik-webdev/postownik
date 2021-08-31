@@ -1,4 +1,18 @@
 <script>
+import { attr } from "svelte/internal";
+
+
+  let status = [
+    { id: 'default', value: '-- zmień status postu --' },
+    { id: 'koncept', value: 'Koncept'},
+    { id: 'edycja', value: 'W edycji'},
+    { id: 'przeglad', value: 'Do przeglądu' },
+    { id: 'gotowy', value: 'Gotowy' }
+  ];
+
+  let selected = 'default';
+
+ 
 </script>
 
 <div class="backgroundlayer">
@@ -9,7 +23,7 @@
     <div class="content">
       <input class="title" type="text" placeholder="lorem" />
     </div>
-    <div class="content" style="height:292px">
+    <div class="content">
       <textarea
         class="textarea"
         wrap="hard"
@@ -26,12 +40,10 @@
         <input />
       </div>
       <div class="status">
-        <select class="statusList">
-          <option>-- zmień status postu --</option>
-          <option style="color:violet">Koncept</option>
-          <option style="color:orange" disabled>W edycji</option>
-          <option style="color:red">Do przeglądu</option>
-          <option style="color:blue">Gotowy</option>
+        <select class="statusList" bind:value={selected}>
+          {#each status as status}
+            <option value={status.id}>{status.value}</option>>
+          {/each}
         </select>
       </div>
     </div>
@@ -68,7 +80,7 @@
   .content {
     width: 600px;
     cursor: default;
-    margin: 5px 0;
+    margin: 5px;
   }
   .title {
     position: static;
@@ -96,7 +108,7 @@
   }
 
   .tag input {
-    width: 402px;
+    width: 359px;
   }
 
   .tag,
@@ -104,21 +116,20 @@
     display: inline;
   }
 
-  .drop-zone{
+  .drop-zone {
     height: 150px;
-    border:2px dashed var(--grey);
+    border: 2px dashed var(--grey);
     border-radius: 15px;
     cursor: pointer;
+    margin-bottom: 10px;
   }
-  .buttonsetSmall {
-    width: 223px;
-    margin-bottom: 5px;
-  }
-  .buttonsetSave {
-    width: 223px;
+
+  .content .buttonsetSmall {
+    display: inline;
   }
 
   .btnSave {
-    width: inherit;
+    width: 260px;
+    margin-top: 5px;
   }
 </style>
