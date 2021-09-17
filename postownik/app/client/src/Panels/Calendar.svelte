@@ -18,9 +18,18 @@ function checkFirstDay(){
     }
     function createArrayOfDates(){
         daysInMonth = [];
+        for(let i=1;i<checkFirstDay().getDay();i++){
+            let tempDate = new Date(checkFirstDay())
+            tempDate.setDate(tempDate.getDate()-(checkFirstDay().getDay()-i))
+            console.log(tempDate.getMonth());
+            console.log(chosenDate.getMonth());
+            daysInMonth.push(tempDate)
+        }
         for(let i = 0; i < (checkAmountOfDays(chosenDate.getMonth(),chosenDate.getFullYear())) ; i++ ) {
             let tempDate = new Date(checkFirstDay())
             tempDate.setDate(tempDate.getDate()+i)
+            console.log(tempDate.getMonth());
+            console.log(chosenDate.getMonth());
             daysInMonth.push(tempDate)
             }
             daysInMonth = daysInMonth
@@ -56,10 +65,22 @@ createArrayOfDates();
 </div>
 
 <div class="container">
+    <h2>pon</h2>
+    <h2>wt</h2>
+    <h2>śr</h2>
+    <h2>czw</h2>
+    <h2>pt</h2>
+    <h2>sob</h2>
+    <h2>nd</h2>
     {#each daysInMonth as dayInMonth}
-        <div>{dayInMonth}</div>
+    {#if dayInMonth.getMonth() == chosenDate.getMonth()}
+    <Day date = {dayInMonth} isCurrentMonth = {true}/>
+    {:else}
+    <Day date = {dayInMonth} isCurrentMonth ={false}/>
+    {/if}
+    
     {/each}
-    <Day/>
+  
 </div>
 
 
@@ -74,5 +95,13 @@ createArrayOfDates();
     }
     h1{
         margin: 15px auto;
+    }
+    div.container{
+        margin: 10px auto;
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(7, calc(1/7 * 100%));
+        align-items: center;
+        justify-content: center;
     }
 </style>
