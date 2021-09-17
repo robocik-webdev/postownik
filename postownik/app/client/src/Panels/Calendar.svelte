@@ -14,11 +14,11 @@ function checkFirstDay(){
     }
     function checkAmountOfDays(month, year){
         // console.log(new Date(year, month + 1, 0).getDate())
-        return new Date(year, month, 0).getDate();
+        return new Date(year, month +1, 0).getDate();
     }
     function createArrayOfDates(){
         daysInMonth = [];
-        for(let i = 0; i < (checkAmountOfDays(chosenDate.getMonth(),chosenDate.getFullYear())) -1 ; i++ ) {
+        for(let i = 0; i < (checkAmountOfDays(chosenDate.getMonth(),chosenDate.getFullYear())) ; i++ ) {
             let tempDate = new Date(checkFirstDay())
             tempDate.setDate(tempDate.getDate()+i)
             daysInMonth.push(tempDate)
