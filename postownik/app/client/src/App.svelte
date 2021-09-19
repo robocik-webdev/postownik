@@ -2,7 +2,7 @@
   import List from './Panels/List.svelte';
   import Calendar from './Panels/Calendar.svelte'; 
   import { authenticated } from './store.js';
-  $: console.log($authenticated);
+  // $: console.log($authenticated);
 </script>
 
 

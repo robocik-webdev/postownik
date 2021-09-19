@@ -5,9 +5,23 @@ let currentDate = new Date();
 let chosenDate = currentDate;
 let chosenMonth =chosenDate.getMonth() ;
 let daysInMonth = [];
-
-function checkFirstDay(){
-        let firstDay = new Date (chosenDate);
+function checkLastDay(date){
+    let lastDay = new Date(date);
+    
+    lastDay = checkFirstDay(date);
+    lastDay.setDate(lastDay.getDate()+1)
+   
+    lastDay.setMonth(lastDay.getMonth()+1)
+    lastDay.setDate(lastDay.getDate()-1)
+    console.log(lastDay.getDay())
+    
+    
+    
+    
+    return lastDay;
+}
+function checkFirstDay(date){
+        let firstDay = new Date (date);
         firstDay.setDate(1)
         // console.log(firstDay.getDay())
         return firstDay
@@ -18,22 +32,51 @@ function checkFirstDay(){
     }
     function createArrayOfDates(){
         daysInMonth = [];
-        for(let i=1;i<checkFirstDay().getDay();i++){
-            let tempDate = new Date(checkFirstDay())
-            tempDate.setDate(tempDate.getDate()-(checkFirstDay().getDay()-i))
-            console.log(tempDate.getMonth());
-            console.log(chosenDate.getMonth());
+        if(checkFirstDay(chosenDate).getDay()==0){
+            // console.log("essa")
+            for(let i=1;i<7;i++){
+            let tempDate = new Date(checkFirstDay(chosenDate))
+            console.log(checkFirstDay(chosenDate).getDay()+6)
+            tempDate.setDate(tempDate.getDate()-(checkFirstDay(chosenDate).getDay()+7-i))
+            
             daysInMonth.push(tempDate)
         }
-        for(let i = 0; i < (checkAmountOfDays(chosenDate.getMonth(),chosenDate.getFullYear())) ; i++ ) {
-            let tempDate = new Date(checkFirstDay())
+        }else{
+        for(let i=1;i<checkFirstDay(chosenDate).getDay();i++){
+            let tempDate = new Date(checkFirstDay(chosenDate))
+            tempDate.setDate(tempDate.getDate()-(checkFirstDay(chosenDate).getDay()-i))
+
+            daysInMonth.push(tempDate)
+        }
+    }
+        for(let i = 0; i <(checkAmountOfDays(chosenDate.getMonth(),chosenDate.getFullYear())) ; i++ ) {
+            let tempDate = new Date(checkFirstDay(chosenDate))
             tempDate.setDate(tempDate.getDate()+i)
-            console.log(tempDate.getMonth());
-            console.log(chosenDate.getMonth());
+
             daysInMonth.push(tempDate)
             }
-            daysInMonth = daysInMonth
- }
+
+            if(checkLastDay(chosenDate).getDay()!=1 &&checkLastDay(chosenDate).getDay()!=0){
+            for(let i=0; i<=(7-checkLastDay(chosenDate).getDay()); i++){
+            let tempDate = new Date(checkLastDay(chosenDate))
+            
+            tempDate.setDate(tempDate.getDate()+i)
+
+            daysInMonth.push(tempDate)
+            
+        }
+    }
+        else if(checkLastDay(chosenDate).getDay()==0){
+            let tempDate = new Date(checkLastDay(chosenDate))
+            
+            tempDate.setDate(tempDate.getDate())
+
+            daysInMonth.push(tempDate)
+        }
+        // console.log(checkLastDay(chosenDate).getDay());
+        //     console.log(7-checkLastDay(chosenDate).getDay());
+    }
+     
 
 
 
@@ -58,9 +101,9 @@ createArrayOfDates();
 <div class="wrapper">
     <h3 class="year">{chosenDate.getFullYear()}</h3>
 <nav>
-<button on:click={removeMonth}  class="previous">p</button>
+<button on:click={removeMonth}  class="previous"><i class="fas fa-arrow-left"></i></button>
 <h1 class="month">{monthNames[chosenMonth%12]}</h1>
-<button on:click={addMonth}  class="next">n</button>
+<button on:click={addMonth}  class="next"><i class="fas fa-arrow-right"></i></button>
 </nav>
 </div>
 
@@ -103,5 +146,7 @@ createArrayOfDates();
         grid-template-columns: repeat(7, calc(1/7 * 100%));
         align-items: center;
         justify-content: center;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
     }
 </style>
